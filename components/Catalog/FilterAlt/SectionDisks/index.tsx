@@ -27,7 +27,6 @@ const SectionDisks: FC<Props> = ({ filterData, onChange }) => {
 					name='width'
 					label='width'
 					options={ filterData?.disc_width?.map(item => ({ value: item.value, label: item.value, p: item.p })) || []}
-					variant='gray'
 					onChange={ onChange }
 					filterValue={ filter?.width }
 					search={ true }
@@ -36,7 +35,6 @@ const SectionDisks: FC<Props> = ({ filterData, onChange }) => {
 					name='radius'
 					label='diameter'
 					options={ filterData?.disc_diameter?.map(item => ({ value: item.value, label: `R${ item.value }`, p: item.p })) || []}
-					variant='gray'
 					onChange={ onChange }
 					filterValue={ filter?.radius }
 					search={ true }
@@ -46,7 +44,6 @@ const SectionDisks: FC<Props> = ({ filterData, onChange }) => {
 				name='krepeg'
 				label='fasteners'
 				options={ data?.krip?.map(item => ({ value: item.value, label: item.value, p: item.p })) || []}
-				variant='white'
 				onChange={ onChange }
 				filterValue={ filter?.krepeg }
 				search={ true }
@@ -59,7 +56,6 @@ const SectionDisks: FC<Props> = ({ filterData, onChange }) => {
 				name='typedisk'
 				label='type'
 				options={ typeDisc.map(item => ({ value: item.value, label: locale === Language.UK ? item.name_ua : item.name })) || []}
-				variant='gray'
 				onChange={ onChange }
 				filterValue={ filter?.typedisk }
 			/>
@@ -67,7 +63,6 @@ const SectionDisks: FC<Props> = ({ filterData, onChange }) => {
 				name='colir'
 				label='color'
 				options={ data?.colir_abbr?.map(item => ({ value: item.value, label: item.value, p: item.p })) || []}
-				variant='gray'
 				onChange={ onChange }
 				filterValue={ filter?.colir }
 				search={ true }
@@ -76,7 +71,6 @@ const SectionDisks: FC<Props> = ({ filterData, onChange }) => {
 				name='brand'
 				label='brand'
 				options={ data?.brand_disc?.map(item => ({ value: item.value, label: item.label })) || []}
-				variant='white'
 				onChange={ onChange }
 				filterValue={ filter?.brand && Number(filter.brand) }
 				search={ true }
