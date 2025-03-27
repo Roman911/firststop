@@ -35,7 +35,6 @@ const SectionTires: FC<Props> = ({ filterData, onChange }) => {
 					label='width'
 					focusValue='175'
 					options={ filterData?.tyre_width.map(item => ({ value: item.value, label: item.value, p: item.p })) || []}
-					variant='gray'
 					onChange={ onChange }
 					filterValue={ filter?.width }
 					search={ true }
@@ -45,7 +44,6 @@ const SectionTires: FC<Props> = ({ filterData, onChange }) => {
 					label='height'
 					focusValue='45'
 					options={ filterData?.tyre_height?.map(item => ({ value: item.value, label: item.value, p: item.p })) || []}
-					variant='gray'
 					onChange={ onChange }
 					filterValue={ filter?.height }
 					search={ true }
@@ -55,7 +53,6 @@ const SectionTires: FC<Props> = ({ filterData, onChange }) => {
 					label='diameter'
 					focusValue='R14'
 					options={ filterData?.tyre_diameter?.map(item => ({ value: item.value, label: `R${ item.value }`, p: item.p })) || []}
-					variant='gray'
 					onChange={ onChange }
 					filterValue={ filter?.radius }
 					search={ true }
@@ -68,7 +65,6 @@ const SectionTires: FC<Props> = ({ filterData, onChange }) => {
 					value: item.value,
 					label: locale === Language.UK ? item.name_ua : item.name
 				}))}
-				variant='white'
 				onChange={ onChange }
 				filterValue={ filter?.sezon }
 				valueStudded={ filter?.only_studded }
@@ -80,7 +76,6 @@ const SectionTires: FC<Props> = ({ filterData, onChange }) => {
 					value: item.value,
 					label: locale === Language.UK ? item.name_ua : item.name
 				}))}
-				variant='white'
 				onChange={ onChange }
 				filterValue={ filter?.vehicle_type }
 			/> }
@@ -91,7 +86,6 @@ const SectionTires: FC<Props> = ({ filterData, onChange }) => {
 					value: item.value,
 					label: locale === Language.UK ? item.name_ua : item.name
 				}))}
-				variant='white'
 				onChange={ onChange }
 				filterValue={ filter?.vehicle_type }
 			/> }
@@ -99,7 +93,6 @@ const SectionTires: FC<Props> = ({ filterData, onChange }) => {
 				name='brand'
 				label='brand'
 				options={ data?.brand?.map(item => ({ value: item.value, label: item.label })) || []}
-				variant='white'
 				onChange={ onChange }
 				filterValue={ filter?.brand && Number(filter.brand) }
 				search={ true }
@@ -108,7 +101,6 @@ const SectionTires: FC<Props> = ({ filterData, onChange }) => {
 				name='li'
 				label='load index'
 				options={ data?.load.map(item => ({ value: item.value, label: item.value })) || []}
-				variant='white'
 				onChange={ onChange }
 				filterValue={ filter?.li }
 				search={ true }
@@ -117,7 +109,6 @@ const SectionTires: FC<Props> = ({ filterData, onChange }) => {
 				name='si'
 				label='speed index'
 				options={ data?.speed.map(item => ({ value: item.value, label: item.value })) || []}
-				variant='white'
 				onChange={ onChange }
 				filterValue={ filter?.si }
 				search={ true }
@@ -126,7 +117,6 @@ const SectionTires: FC<Props> = ({ filterData, onChange }) => {
 				name='omolog'
 				label='homologation'
 				options={ data?.omolog.map(item => ({ value: item.value, label: item.value })) || []}
-				variant='white'
 				onChange={ onChange }
 				filterValue={ filter?.omolog }
 				search={ true }
@@ -135,7 +125,6 @@ const SectionTires: FC<Props> = ({ filterData, onChange }) => {
 				name='other'
 				label='other'
 				options={ others.map(item => ({ value: item.value, label: locale === Language.UK ? item.name_ua : item.name })) || []}
-				variant='white'
 				onChange={ onChange }
 				filterOther={{
 					only_c: filter?.only_c ?? null,
