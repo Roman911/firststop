@@ -35,7 +35,7 @@ const Summary: FC<SummaryProps> = ({ data, isLoading, loadingBtn, cartItems }) =
 
 	return <div className='w-full lg:w-96'>
 		<div ref={ ref }></div>
-		<div className={ twMerge('bg-white w-full lg:w-96', !inView && 'lg:fixed top-4') }>
+		<div className={ twMerge('bg-white dark:bg-black w-full lg:w-96 shadow-xl rounded-lg', !inView && 'lg:fixed top-4') }>
 			<div className='pt-5 pb-2 px-6'>
 				<h3 className='font-bold'>{ t('your order') }</h3>
 				<Spinner height='h-40' show={ isLoading }>
@@ -54,13 +54,13 @@ const Summary: FC<SummaryProps> = ({ data, isLoading, loadingBtn, cartItems }) =
 					</div>
 				</Spinner>
 			</div>
-			<div className='bg-blue-50 py-5 px-6'>
+			<div className='bg-gray-100 dark:bg-white/10 py-5 px-6 rounded-b-lg'>
 				<div className='flex justify-between font-bold mb-5'>
 					<div>{ t('total sum') }</div>
 					<div>{ totalQuantityPrice } грн</div>
 				</div>
-				<Button type='submit' color='primary' radius='full' size='lg'
-								className='w-full uppercase font-bold' isLoading={ loadingBtn } disabled={ loadingBtn }>
+				<Button type='submit' color='primary' radius='sm' size='lg'
+								className='w-full font-semibold' isLoading={ loadingBtn } disabled={ loadingBtn }>
 					{ t('place an order') }
 				</Button>
 			</div>

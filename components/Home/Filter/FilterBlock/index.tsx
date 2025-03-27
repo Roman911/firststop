@@ -33,7 +33,7 @@ const FilterBlock: FC<Props> = ({ children, section, onSubmit, className }) => {
 
 	return (
 		<div
-			className={ twMerge('flex-1 flex flex-col justify-between p-10 bg-white/75 dark:bg-neutral-900/75 rounded-lg max-w-7xl w-full mx-auto mb-24 mt-auto', className, section === Section.Battery && 'md:bg-primary') }>
+			className={ twMerge('flex-1 flex flex-col justify-between p-6 md:p-10 bg-white/75 dark:bg-neutral-900/75 rounded-lg max-w-7xl w-full mx-auto mb-24 mt-auto', className, section === Section.Battery && 'md:bg-primary') }>
 			<div className='flex items-center justify-center gap-8 md:gap-20 mb-6 md:mb-0'>
 				<Button
 					size='lg'

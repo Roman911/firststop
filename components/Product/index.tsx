@@ -100,7 +100,7 @@ const ProductComponent: FC<Props> = ({ idProduct, locale, data, section }) => {
 						<div className='flex justify-between mt-4 md:mt-8'>
 							<div>
 								<div className='flex items-end'>
-									<div className='text-4xl font-bold mr-2.5'>{ offer && +offer?.price } грн</div>
+									<div className='text-2xl font-bold mr-2.5'>{ offer && +offer?.price } грн</div>
 								</div>
 							</div>
 						</div>

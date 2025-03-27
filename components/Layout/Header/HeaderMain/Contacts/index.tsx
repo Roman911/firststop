@@ -26,7 +26,7 @@ const Contacts: FC<Props> = ({ settings }) => {
 					<div className='pt-2 pb-1 pl-2 pr-1 bg-primary rounded-full'>
 						<Icons.PhoneIcon className='h-6 w-6 fill-white' />
 					</div>
-					<Icons.ChevronDownIcon className='h-2 w-2 stroke-black' />
+					<Icons.ChevronDownIcon className='h-2 w-2 stroke-black dark:stroke-white' />
 				</Button>
 			</DropdownTrigger>
 			<DropdownMenu aria-label="Dynamic Actions" items={filterTelephones}>

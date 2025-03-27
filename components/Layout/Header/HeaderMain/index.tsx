@@ -53,7 +53,7 @@ const HeaderMain: FC<Props> = ({ settings }) => {
 						<Logo />
 					</NavbarBrand>
 				</NavbarContent>
-				<NavbarContent className={ styles.search }>
+				<NavbarContent className='hidden md:flex'>
 					<Info settings={ settings } />
 				</NavbarContent>
 				<NavbarContent className={ styles.search }>
@@ -67,7 +67,7 @@ const HeaderMain: FC<Props> = ({ settings }) => {
 				<NavbarContent className='hidden sm:block col-start-1 col-end-5'>
 					<MyNavbar />
 				</NavbarContent>
-				<NavbarMenu className={ twMerge('mt-6 bg-white pt-16 px-2', styles.menu) }>
+				<NavbarMenu className={ twMerge('mt-20 bg-white dark:bg-black pt-16 px-2', styles.menu) }>
 					<NavbarMenuItem>
 						<button
 							onClick={ () => handleClick('tires') }
@@ -77,7 +77,7 @@ const HeaderMain: FC<Props> = ({ settings }) => {
 							<span>{ t('cartires') }</span>
 							<span className={ twMerge('transition', filterIsOpen === 'tires' && 'rotate-180') }>
 						<Icons.ChevronDownIcon
-							className={ twMerge('stroke-black transition group-hover:stroke-primary w-4 h-4', filterIsOpen === 'tires' && 'stroke-primary') }/>
+							className={ twMerge('stroke-black dark:stroke-white transition group-hover:stroke-primary w-4 h-4', filterIsOpen === 'tires' && 'stroke-primary') }/>
 					</span>
 						</button>
 						{ filterIsOpen === 'tires' &&
@@ -95,7 +95,7 @@ const HeaderMain: FC<Props> = ({ settings }) => {
 							<span>{ t('cardiscs') }</span>
 							<span className={ twMerge('transition', filterIsOpen === 'disks' && 'rotate-180') }>
 						<Icons.ChevronDownIcon
-							className={ twMerge('stroke-black transition group-hover:stroke-primary w-4 h-4', filterIsOpen === 'disks' && 'stroke-primary') }/>
+							className={ twMerge('stroke-black dark:stroke-white transition group-hover:stroke-primary w-4 h-4', filterIsOpen === 'disks' && 'stroke-primary') }/>
 					</span>
 						</button>
 						{ filterIsOpen === 'disks' &&

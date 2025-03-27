@@ -2,9 +2,6 @@ import { FC } from 'react';
 import Image from 'next/image';
 import { Button } from '@heroui/button';
 import { Link } from '@/i18n/routing';
-import { Language } from '@/models/language';
-import { countryCodeTransform } from '@/lib/countryCodetransform';
-import CountryInfo from '@/components/UI/CountryInfo';
 import Quantity from '@/components/UI/Quantity';
 
 interface CartItemProps {
@@ -16,9 +13,7 @@ interface CartItemProps {
 	price: string
 	sku: number
 	country: string
-	country_ru: string
 	year: number
-	locale: string
 	offerQuantity: number,
 	removeProduct: (id: number) => void
 	setQuantity: (id: number, quantity: number) => void
@@ -33,13 +28,9 @@ const CartItem: FC<CartItemProps> = (
 		full_name,
 		price,
 		sku,
-		country,
-		country_ru,
-		year,
 		offerQuantity,
 		setQuantity,
 		removeProduct,
-		locale
 	}) => {
 
 	const onChange = (e: { target: HTMLInputElement }) => {
@@ -53,22 +44,15 @@ const CartItem: FC<CartItemProps> = (
 
 	return <div className='flex flex-col md:flex-row py-4 items-center relative border-b'>
 		<Link href={`/${pageUrl}`}>
-			<Image src={ default_photo } height={ 122 } width={ 122 } alt={ full_name } />
+			<Image src={ default_photo } height={ 160 } width={ 160 } alt={ full_name } />
 		</Link>
-		<div className='flex flex-col md:flex-row justify-between items-center w-full ml-4 pr-4 mt-4 md:mt-0 md:pr-0'>
+		<div className='flex flex-col md:flex-row justify-between items-center ml-4 pr-4 mt-4 md:mt-0 md:pr-0'>
 			<div className='flex-1'>
-				<Link href={ `/${pageUrl}` } className='font-bold md:text-medium hover:text-primary transition'>
+				<Link href={ `/${pageUrl}` } className='font-bold md:text-2xl hover:text-primary transition'>
 					{ full_name }
 				</Link>
-				<div className='font-bold text-lg mt-2'>{ price } ₴/шт.</div>
-				<div className='text-sm text-gray-500 mt-1'>Арт: { sku }</div>
-				<div className='country mt-2 md:col-span-4'>
-					{ (country || year) && <CountryInfo
-						country={ country }
-						countryCode={ countryCodeTransform( locale === Language.UK ? country : country_ru) }
-						year={ year }
-					/> }
-				</div>
+				<div className='py-2 px-4 text-sm bg-gray-100 text-gray-600 mt-1 max-w-max rounded-sm'>Арт: { sku }</div>
+				<div className='font-bold text-2xl mt-2'>{ price } грн</div>
 			</div>
 			<div className='flex flex-col items-end mt-6 md:mt-3 mr-4 gap-4'>
 				<Quantity
@@ -78,6 +62,7 @@ const CartItem: FC<CartItemProps> = (
 					offerQuantity={ offerQuantity }
 					onChange={ onChange }
 					setQuantity={ setQuantity }
+					isCart={ true }
 				/>
 			</div>
 		</div>
@@ -87,7 +72,7 @@ const CartItem: FC<CartItemProps> = (
 			onPress={() => removeProduct(id)}
 			className='absolute top-4 right-0 md:right-3 p-2'
 		>
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className='w-4 h-4 fill-gray-500'>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className='w-4 h-4 fill-primary'>
 				<path
 					d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/>
 			</svg>

@@ -27,7 +27,7 @@ const Menu: FC<Props> = ({ alias }) => {
 					key={ index }
 					href={ `/page/${item.slug}` }
 					onClick={ () => handleClick(`/page/${item.slug}`) }
-					className='font-medium uppercase hover:underline hover:text-primary text-white'>
+					className='font-medium uppercase hover:underline hover:text-primary text-white hidden md:inline-block'>
 					{ item.descriptions[locale === Language.UK ? 'ua' : 'ru'].title }
 				</Link>
 			}) }

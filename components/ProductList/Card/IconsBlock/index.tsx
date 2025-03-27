@@ -22,13 +22,14 @@ const IconsBlock: FC<Props> = ({ season, vehicle_type }) => {
 	const Icon = icons[vehicle_type_number] || null;
 
 	return (
-		<div className='absolute -right-1 top-10'>
+		<div className='absolute right-1 -top-2'>
 			{ seasonIcon && <Image
 				src={ `/icons/${ seasonIcon }.svg` }
 				alt=''
 				width={ 24 }
 				height={ 24 }
 				priority
+				className='mb-2'
 			/> }
 			{ Icon && <Icon className={ twMerge('fill-gray-500', vehicle_type === '2' && 'stroke-gray-500') }/> }
 		</div>

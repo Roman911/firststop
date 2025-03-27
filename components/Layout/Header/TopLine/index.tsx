@@ -15,8 +15,8 @@ const TopLine: FC<Props> = ({ alias }) => {
 
 	return (
 		<section className='top-line w-full bg-gray-900 dark:bg-gray-900'>
-			<div className='container mx-auto py-3 px-4'>
-				<nav className='gap-2 2xl:gap-6 hidden lg:flex items-center justify-between mx-4'>
+			<div className='container mx-auto py-3 md:px-4'>
+				<nav className='gap-2 2xl:gap-6 flex items-center justify-between mx-4'>
 					<Menu alias={ alias } />
 					<ThemeToggle />
 					<LanguageChanger />

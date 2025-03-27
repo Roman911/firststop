@@ -58,14 +58,14 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 	};
 
 	return <section className='mt-8 md:mt-16'>
-		<div className='gap-x-2.5 border-b border-[#E0E4E8] hidden md:flex'>
+		<div className='gap-x-16 hidden md:flex'>
 			{ tabs.map((item, index) => {
 				return <button
 					key={ index }
 					onClick={ () => setTab(item.label) }
 					className={
-						twMerge('py-4 px-5 rounded-t text-sm font-bold uppercase focus:outline-none focus:shadow-outline-blue transition-all duration-300 bg-zinc-200 text-[#575C66]',
-							tab === item.label && 'bg-[#171719] text-white')
+						twMerge('py-4 rounded-t text-lg border-b-4 border-transparent font-bold uppercase focus:outline-none focus:shadow-outline-blue transition-all duration-300 hover:text-primary',
+							tab === item.label && 'text-primary border-primary')
 					}>
 					{ t(item.label) }
 				</button>
@@ -73,18 +73,18 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 		</div>
 		<div className='relative text-left md:hidden'>
 			<button type='button' onClick={ () => setShowOptions(prev => !prev) }
-							className='flex items-center w-full justify-between px-3.5 py-2 bg-white border border-[#CDD0D9] rounded-sm font-medium'
+							className='flex items-center w-full justify-between px-3.5 py-2 bg-white dark:bg-black border border-gray-500 rounded-sm font-medium'
 							id='menu-button'>
 				{ t(tab) }
 				<div className={ twMerge('transition-transform', showOptions && 'rotate-180') }>
-					<Icons.ChevronDownIcon className='stroke-black'/>
+					<Icons.ChevronDownIcon className='w-4 h-4 stroke-black dark:stroke-white'/>
 				</div>
 			</button>
 			<div
 				className={
-				twMerge('absolute left-0 z-10 w-full border border-[#CDD0D9] bg-white shadow-lg rounded-sm', !showOptions && 'hidden') }
+				twMerge('absolute left-0 z-10 w-full border border-gray-500 bg-white dark:bg-black shadow-lg rounded-sm', !showOptions && 'hidden') }
 				tabIndex={ -1 }>
-				<div className="text-black px-3.5 py-2">
+				<div className="px-3.5 py-2">
 					{ tabs.map((item, index) => {
 						return <button
 							key={ index }
@@ -113,7 +113,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 						</Tooltip>
 					</div>
 					<Link href={ link(`/w-${ data?.data.offer_group.width }`) }
-								className='text-black max-w-max w-full hover:underline'>
+								className='max-w-max w-full hover:underline'>
 						{ data?.data.offer_group.width }
 					</Link>
 				</div> }
@@ -129,7 +129,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 						</Tooltip>
 					</div>
 					<Link href={ link(`/h-${ data?.data.offer_group.height }`) }
-								className='text-black max-w-max w-full hover:underline'>
+								className='max-w-max w-full hover:underline'>
 						{ data?.data.offer_group.height }
 					</Link>
 				</div> }
@@ -145,7 +145,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 						</Tooltip>
 					</div>
 					<Link href={ link(`/d-${ data?.data.offer_group.diameter }`) }
-								className='text-black max-w-max w-full hover:underline'>
+								className='max-w-max w-full hover:underline'>
 						{ data?.data.offer_group.diameter }
 					</Link>
 				</div> }
@@ -161,7 +161,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 						</Tooltip>
 					</div>
 					<Link href={ link(`/kr-${ data?.data.offer_group.krep_pcd1 }`) }
-								className='text-black max-w-max w-full hover:underline'>
+								className='max-w-max w-full hover:underline'>
 						{ data?.data.offer_group.krep_pcd1 }
 					</Link>
 				</div> }
@@ -171,7 +171,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 						{ t('speed index') }
 					</div>
 					<Link href={ link(`/si-${ data?.data.offer_group.speed_index }`) }
-								className='text-black max-w-max w-full hover:underline'>
+								className='max-w-max w-full hover:underline'>
 						{ locale === Language.UK ? data?.data.offer_group.speed_index : data?.data.offer_group.speed_index_ru }
 					</Link>
 				</div> }
@@ -181,7 +181,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 						{ t('load index') }
 					</div>
 					<Link href={ link(`/li-${ data?.data.offer_group.load_index }`) }
-								className='text-black max-w-max w-full hover:underline'>
+								className='max-w-max w-full hover:underline'>
 						{ locale === Language.UK ? data?.data.offer_group.load_index : data?.data.offer_group.load_index_ru }
 					</Link>
 				</div> }
@@ -194,7 +194,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 					</div>
 					<Link href={ link(`/b-${ data?.data.brand.id }`) }
 								onClick={ () => dispatch(addBrandAlias(data ? data?.data.brand.alias : '')) }
-								className='text-black max-w-max w-full hover:underline'>
+								className='max-w-max w-full hover:underline'>
 						{ data?.data.brand.name }
 					</Link>
 				</div> }
@@ -205,7 +205,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 					</div>
 					<Link href={ link(`/b-${ data?.data.brand.id }/m-${ data?.data.model.id }`) }
 								onClick={ () => dispatch(addModelAlias(data ? data?.data.model.alias : '')) }
-								className='text-black max-w-max w-full hover:underline'>
+								className='max-w-max w-full hover:underline'>
 						{ data?.data.model.name }
 					</Link>
 				</div> }
@@ -214,7 +214,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 						className='w-full flex items-center text-[#575C66] after:flex-1 after:min-w-6 after:border-b after:border-dashed after:border-[#AEB6C2] after:h-px after:mt-3 after:mx-2'>
 						{ t('appointment') }
 					</div>
-					<Link href={ `/vt-${ vehicleType }` } className='text-black'>
+					<Link href={ `/vt-${ vehicleType }` } className=''>
 						{ t(vehicleTransform?.name || '') }
 					</Link>
 				</div> }
@@ -224,7 +224,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 						Сезон
 					</div>
 					<Link href={ link(`/s-${ data?.data.model.season }`) }
-								className='text-black max-w-max w-full hover:underline'>
+								className='max-w-max w-full hover:underline'>
 						{ t(SeasonTransform(data?.data.model.season)?.name || '') }
 					</Link>
 				</div> }
@@ -234,7 +234,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 						ET
 					</div>
 					<Link href={ link(`/et-${ data?.data.offer_group.et }`) }
-								className='text-black max-w-max w-full hover:underline'>
+								className='max-w-max w-full hover:underline'>
 						{ data?.data.offer_group.et }
 					</Link>
 				</div> }
@@ -244,7 +244,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 						DIA
 					</div>
 					<Link href={ link(`/dia-${ data?.data.offer_group.dia }`) }
-								className='text-black max-w-max w-full hover:underline'>
+								className='max-w-max w-full hover:underline'>
 						{ data?.data.offer_group.dia }
 					</Link>
 				</div> }
@@ -255,7 +255,7 @@ const CharacteristicsBlock: FC<CharacteristicsBlockProps> = ({ locale, data }) =
 					</div>
 					<Link
 						href={ link(`/w-${ data?.data.offer_group.width }/h-${ data?.data.offer_group.height }/d-${ data?.data.offer_group.diameter }`) }
-						className='text-black max-w-max w-full hover:underline'>
+						className='max-w-max w-full hover:underline'>
 						{ `${ data?.data.offer_group.width }/${ data?.data.offer_group.height } R${ data?.data.offer_group.diameter }` }
 					</Link>
 				</div> }

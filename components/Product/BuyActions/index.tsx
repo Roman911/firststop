@@ -14,6 +14,7 @@ import { removeCart, setQuantity } from '@/store/slices/cartSlice';
 import CartComponent from '@/components/Cart';
 import NoResult from '@/components/UI/NoResult';
 import Spinner from '@/components/UI/Spinner';
+import * as Icons from '@/components/UI/Icons';
 
 interface Props {
 	locale: Language
@@ -61,12 +62,13 @@ const BuyActions: FC<Props> = ({ locale, offerId, quantity, section, data, onSub
 	}
 
 	return (
-		<div className='buttons-buy flex flex-col gap-2 mt-8'>
+		<div className='buttons-buy flex flex-col md:flex-row gap-2 mt-8'>
 			{ cartItems.find(item => +item.id === offerId) ?
-				<Button color='success' size='lg' radius='full' onPress={ onOpen } className='uppercase font-bold'>
+				<Button color='success' size='lg' radius='sm' onPress={ onOpen } className='w-full font-semibold'>
 					{ t('in cart') }
 				</Button> :
-				<Button onPress={ handleClickBuy } color='primary' radius='full' size='lg' className='uppercase w-full font-bold md:w-72'>
+				<Button onPress={ handleClickBuy } color='primary' radius='sm' size='lg' className='w-full font-semibold'>
+					<Icons.CartIcon />
 					{ t('buy') }
 				</Button>
 			}
@@ -81,7 +83,7 @@ const BuyActions: FC<Props> = ({ locale, offerId, quantity, section, data, onSub
 				<ModalContent>
 					{ (onClose) => (
 						<>
-							<ModalHeader>{ t('cart') }</ModalHeader>
+							<ModalHeader className='text-2xl'>{ t('cart') }</ModalHeader>
 							<ModalBody>
 								<Spinner height='h-40' show={ isLoading }>
 									{ cartItems.length > 0 && dataTotal?.result ? <CartComponent
@@ -93,11 +95,11 @@ const BuyActions: FC<Props> = ({ locale, offerId, quantity, section, data, onSub
 										<NoResult noResultText='no product to cart' /> }
 								</Spinner>
 							</ModalBody>
-							<ModalFooter>
-								<Button variant='bordered' size='lg' className='uppercase font-bold' radius='full' onPress={onClose}>
+							<ModalFooter className='flex-col md:flex-row'>
+								<Button variant='bordered' color='primary' size='lg' className='font-semibold w-full' radius='sm' onPress={onClose}>
 									{ t('continue shopping') }
 								</Button>
-								<Button color='primary' size='lg' className='uppercase font-bold' radius='full' onPress={ handleClick }>
+								<Button color='primary' size='lg' className='font-semibold w-full' radius='sm' onPress={ handleClick }>
 									{ t('place an order') }
 								</Button>
 							</ModalFooter>

@@ -25,15 +25,15 @@ const Offers: FC<Props> = ({ locale, offerId, offers, setOfferId, setQuantity })
 				{ offers.map(item => {
 					return <Radio color='primary' key={ item.offer_id } value={ `${item.offer_id}` } classNames={{
 						control: 'h-3 w-3',
-						wrapper: 'bg-white',
+						wrapper: 'bg-white dark:bg-black',
 						labelWrapper: 'w-full'
 					}}
-												className='bg-white md:bg-transparent border md:border-0 rounded-full ml-0 mt-2 md:mt-0 w-full max-w-full'
+												className='md:bg-transparent border md:border-0 rounded-full ml-0 mt-2 md:mt-0 w-full max-w-full'
 					>
 						<div
 							className='grid-cols-10 grid md:grid-cols-9 w-full gap-1 md:gap-2 items-center md:min-w-[460px]'
 						>
-							<div className='font-medium col-span-1 md:col-span-1 md:ml-3'>
+							<div className='font-medium col-span-2 md:col-span-2 md:ml-3'>
 								{ item.quantity } шт.
 							</div>
 							<div className='country col-span-2 md:col-span-3'>
@@ -43,8 +43,8 @@ const Offers: FC<Props> = ({ locale, offerId, offers, setOfferId, setQuantity })
 									mobileHidden={ true }
 								/>
 							</div>
-							<div className='storage col-span-4 md:col-span-3 text-gray-600 content-center flex items-center gap-x-1 md:gap-x-2'>
-								<Icons.MarkerIcon className='fill-gray-600 w-6' />
+							<div className='storage col-span-3 md:col-span-2 content-center flex items-center gap-x-1 md:gap-x-2'>
+								<Icons.MarkerIcon className='w-6 fill-black dark:fill-white' />
 								{ locale === Language.UK ? item.posts.city : item.posts.city_ru }
 							</div>
 							<div className='price col-span-3 md:col-span-2 font-bold content-center'>

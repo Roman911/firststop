@@ -3,7 +3,7 @@ import { FC, useMemo, useState } from 'react';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { Button } from '@heroui/button';
-import { Card, CardBody, CardFooter } from '@heroui/card';
+import { Card, CardBody, CardFooter, CardHeader } from '@heroui/card';
 import { Link, useRouter } from '@/i18n/routing';
 import { useAppDispatch } from '@/hooks/redux';
 import { addCart } from '@/store/slices/cartSlice';
@@ -53,16 +53,19 @@ const ProductCard: FC<Props> = ({ item }) => {
 
 	return (
 		<Card radius='none' className='relative'>
+			<CardHeader className='flex justify-between pb-0 px-2'>
+				<div></div>
+				<ActionsBlock sectionNew={ sectionNew } group={ group }/>
+			</CardHeader>
 			<CardBody>
 				<div className='relative min-h-72 sm:min-h-52 text-center'>
-					<ActionsBlock sectionNew={ sectionNew } group={ group }/>
 					<IconsBlock season={ season } vehicle_type={ vehicle_type }/>
 					<Image
 						className='mx-auto'
 						src={ default_photo || `/images/no-photo${ locale === Language.UK ? '' : '-ru' }.jpg` }
 						alt={ full_name }
-						width={ 220 }
-						height={ 220 }
+						width={ 210 }
+						height={ 210 }
 					/>
 				</div>
 				<Link

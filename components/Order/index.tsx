@@ -49,7 +49,7 @@ const OrderComponent: FC<OrderProps> = (
 
 	return <div className='flex flex-col lg:flex-row gap-6 w-full'>
 		<div className='flex-1'>
-			<div className='bg-white pt-5 pb-8 px-6 flex flex-col gap-4'>
+			<div className='bg-white dark:bg-black pt-5 pb-8 px-6 flex flex-col gap-4 rounded-lg shadow-xl'>
 				<h3 className='font-bold text-xl mb-4'>
 					{ t('contact details') }
 				</h3>
@@ -80,7 +80,7 @@ const OrderComponent: FC<OrderProps> = (
 					type='email'
 				/>
 			</div>
-			<div className='bg-white pt-5 pb-8 px-6 mt-4'>
+			<div className='bg-white dark:bg-black pt-5 pb-8 px-6 mt-4 rounded-lg shadow-xl'>
 				<h3 className='font-bold text-xl'>{ t('delivery and payment') }</h3>
 				<div className='relative mt-6 w-full min-w-[200px] flex flex-col gap-3'>
 					<h4 className='font-semibold'>
@@ -101,7 +101,7 @@ const OrderComponent: FC<OrderProps> = (
 					<MySelect name='payment_method' label='Способ оплаты' options={ paymentsOptions } onChange={ onChange }/>
 				</div>
 			</div>
-			<div className='bg-white pt-5 pb-8 px-6 mt-4 md:mb-20'>
+			<div className='bg-white dark:bg-black pt-5 pb-8 px-6 mt-4 md:mb-20 rounded-lg shadow-xl'>
 				<h4 className='font-semibold'>
 					{ t('add comment') }
 				</h4>

@@ -51,7 +51,7 @@ const CartComponent: FC<CarProps> = ({ data, cartItems, removeProduct, setQuanti
 		router.push(`/${ locale }/order`)
 	}
 
-	return <div className='flex flex-col bg-white p-2 rounded-sm shadow-sm gap-10'>
+	return <div className='flex flex-col p-2 rounded-sm shadow-sm gap-10'>
 		<ScrollShadow className='max-h-[400px] border rounded-lg px-4'>
 			{ data?.data.products.map(item => {
 				const quantity = cartItems?.find(i => i.id === item.best_offer.id)?.quantity || 1;
@@ -65,17 +65,15 @@ const CartComponent: FC<CarProps> = ({ data, cartItems, removeProduct, setQuanti
 					full_name={ item.full_name }
 					price={ item.best_offer.price }
 					country={ item.best_offer.country }
-					country_ru={ item.best_offer.country_ru }
 					year={ item.best_offer.year }
 					offerQuantity={ item.offers[0]?.quantity }
 					removeProduct={ removeProduct }
 					setQuantity={ setQuantity }
-					locale={ locale }
 				/>
 			}) }
 		</ScrollShadow>
-		<div className='w-full lg:w-80 px-5 h-max ml-auto pb-2'>
-			<div className='flex justify-between text-lg'>
+		<div className='w-full lg:w-96 px-5 h-max ml-auto pb-2'>
+			<div className='flex justify-between text-xl'>
 				<div>
 					{ totalQuantity }
 					{ ' ' }
@@ -89,7 +87,7 @@ const CartComponent: FC<CarProps> = ({ data, cartItems, removeProduct, setQuanti
 				</div>
 				<div>{ totalQuantityPrice } ₴</div>
 			</div>
-			<div className='font-bold text-lg mt-4 flex justify-between'>
+			<div className='font-bold text-2xl mt-4 flex justify-between'>
 				<div>{ t('total payable') }:</div>
 				<div>{ totalQuantityPrice } ₴</div>
 			</div>

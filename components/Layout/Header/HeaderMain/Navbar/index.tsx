@@ -70,9 +70,9 @@ const Navbar = () => {
 			</nav>
 			<div
 				ref={ filterRef }
-				className={ twMerge('absolute left-0 right-0 top-20 z-30 flex w-full -mt-0.5', !open && 'hidden') }>
+				className={ twMerge('absolute left-0 right-0 top-28 z-30 flex w-full mt-5', !open && 'hidden') }>
 				<div
-					className='w-full overflow-hidden bg-white shadow-lg pt-8 pb-6 font-normal'>
+					className='w-full overflow-hidden bg-white dark:bg-black shadow-lg pt-8 pb-6 font-normal'>
 					<div className='flex-auto max-w-7xl grid grid-cols-4 mx-auto px-4'>
 						{ section === 'tires' ? <CarTireFilter closeFilter={ closeFilter } /> :
 							<CarDiskFilter closeFilter={ closeFilter } /> }

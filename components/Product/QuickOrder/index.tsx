@@ -13,6 +13,7 @@ import { Offers } from '@/models/product';
 import { baseDataAPI } from '@/services/baseDataService';
 import PhoneMaskInput from '@/components/UI/PhoneMaskInput';
 import { formatPhoneNumber } from '@/lib/formatPhoneNumber';
+import * as Icons from '@/components/UI/Icons';
 
 interface Props {
 	locale: Language
@@ -94,10 +95,13 @@ const QuickOrder: FC<Props> = (
 		<>
 			<Button
 				onPress={ onOpen }
-				radius='full'
+				radius='sm'
 				size='lg'
-				className='bg-white mt-2.5 w-full md:w-72 hover:bg-white hover:shadow uppercase border border-gray-400 font-bold'
+				color='primary'
+				variant='bordered'
+				className='w-full hover:shadow font-semibold'
 			>
+				<Icons.CartIcon />
 				{ t('quick order') }
 			</Button>
 			<Modal isOpen={ isOpen } onOpenChange={ onOpenChange }>
