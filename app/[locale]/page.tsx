@@ -19,13 +19,13 @@ async function getSettings() {
 }
 
 async function getProducts() {
-	const res = await fetch(`${ process.env.SERVER_URL }/api/getProducts?typeproduct=1&order[value]=featured&order[asc]=0`, {
+	const res = await fetch(`${ process.env.SERVER_URL }/api/getProducts?typeproduct=1`, {
 		method: 'POST',
 		headers: {
 			'Access-Control-Allow-Credentials': 'true',
 			'content-type': 'application/json',
 		},
-		body: JSON.stringify({ start: 0, length: 4 }),
+		body: JSON.stringify({ start: 0, length: 8 }),
 	});
 	return await res.json();
 }

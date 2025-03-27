@@ -11,7 +11,6 @@ import type { BaseDataProps } from '@/models/baseData';
 import { SubmitFloat } from '@/components/Catalog/FilterAlt/SubmitFloat';
 import { baseDataAPI } from '@/services/baseDataService';
 import ByCar from '@/components/Catalog/FilterAlt/ByCar';
-import { SelectFromTo } from '@/components/Catalog/FilterAlt/SelectFromTo';
 import FilterBtn from '@/components/Catalog/FilterByCar/FilterBtn';
 import SectionTires from '@/components/Catalog/FilterAlt/SectionTires';
 import SectionDisks from '@/components/Catalog/FilterAlt/SectionDisks';

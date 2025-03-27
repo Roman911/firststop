@@ -7,7 +7,6 @@ import ProductList from '@/components/ProductList';
 import NoResult from '@/components/UI/NoResult';
 import { transformUrl } from './transformUrl';
 import SelectionByCar from '@/components/Catalog/SelectionByCar';
-import FilterActive from '@/components/Catalog/FilterActive';
 import HeaderCatalog from '@/components/Catalog/HeaderCatalog';
 import Pagination from '@/components/Catalog/Pagination';
 import type { Metadata } from 'next';

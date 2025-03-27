@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
 import { SettingsProps } from '@/models/settings';
 import type { PhoneLogo } from '@/models/config';
