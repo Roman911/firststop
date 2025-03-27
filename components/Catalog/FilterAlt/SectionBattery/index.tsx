@@ -20,7 +20,6 @@ const SectionBattery: FC<Props> = ({ onChange }) => {
 				name='jemnist'
 				label='capacity ah'
 				options={ dataAkum?.jemnist.map(item => ({value: item.value, label: item.value, p: item.p})) || []}
-				variant='gray'
 				onChange={ onChange }
 				filterValue={ filter?.jemnist }
 				search={ true }
@@ -29,7 +28,6 @@ const SectionBattery: FC<Props> = ({ onChange }) => {
 				name='puskovii_strum'
 				label='starting current a'
 				options={ dataAkum?.['puskovii-strum'].map(item => ({value: item.value, label: item.value, p: item.p})) || []}
-				variant='gray'
 				onChange={ onChange }
 				filterValue={ filter?.puskovii_strum }
 				search={ true }
@@ -38,7 +36,6 @@ const SectionBattery: FC<Props> = ({ onChange }) => {
 				name='tip_elektrolitu'
 				label='type akb'
 				options={ dataAkum?.['tip-elektrolitu'].map(item => ({value: item.value, label: item.value, p: item.p})) || []}
-				variant='gray'
 				onChange={ onChange }
 				filterValue={ filter?.tip_elektrolitu }
 				search={ true }
@@ -47,7 +44,6 @@ const SectionBattery: FC<Props> = ({ onChange }) => {
 				name='tip_korpusu'
 				label='body type'
 				options={ dataAkum?.['tip-korpusu'].map(item => ({value: item.value, label: item.value, p: item.p})) || []}
-				variant='white'
 				onChange={ onChange }
 				filterValue={ filter?.tip_korpusu }
 			/>
@@ -55,7 +51,6 @@ const SectionBattery: FC<Props> = ({ onChange }) => {
 				name='brand'
 				label='brand'
 				options={ dataAkum?.brand_akum?.map(item => ({value: item.value, label: item.label})) || []}
-				variant='white'
 				onChange={ onChange }
 				filterValue={ filter?.brand && Number(filter.brand) }
 				search={ true }
@@ -70,7 +65,6 @@ const SectionBattery: FC<Props> = ({ onChange }) => {
 				name='napruga'
 				label='high-voltage v'
 				options={ dataAkum?.napruga.map(item => ({value: item.value, label: item.value, p: item.p})) || []}
-				variant='gray'
 				onChange={ onChange }
 				filterValue={ filter?.napruga }
 			/>
@@ -78,7 +72,6 @@ const SectionBattery: FC<Props> = ({ onChange }) => {
 				name='poliarnist'
 				label='polarity'
 				options={ dataAkum?.poliarnist.map(item => ({value: item.value, label: item.value, p: item.p})) || []}
-				variant='white'
 				onChange={ onChange }
 				filterValue={ filter?.poliarnist }
 			/>
