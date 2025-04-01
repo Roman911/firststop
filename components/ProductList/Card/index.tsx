@@ -61,11 +61,11 @@ const ProductCard: FC<Props> = ({ item }) => {
 				<div className='relative min-h-72 sm:min-h-52 text-center'>
 					<IconsBlock season={ season } vehicle_type={ vehicle_type }/>
 					<Image
-						className='mx-auto'
+						className='mx-auto md:w-5/6'
 						src={ default_photo || `/images/no-photo${ locale === Language.UK ? '' : '-ru' }.jpg` }
 						alt={ full_name }
-						width={ 210 }
-						height={ 210 }
+						width={ 400 }
+						height={ 400 }
 					/>
 				</div>
 				<Link

@@ -51,13 +51,17 @@ export default async function Home({ params }: { params: Promise<{ locale: Langu
 	return (
 		<>
 			<Filter />
-			<LayoutWrapper>
+			<LayoutWrapper className='max-w-7xl'>
 				<Title title={ response[lang].h2_top } className='mt-12 mb-5 text-2xl md:text-4xl font-bold px-3 md:px-0' />
 				{ products.result ? <ProductList
 					classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
 					data={ products.data }
 				/> : <NoResult noResultText='no result'/> }
+			</LayoutWrapper>
+			<LayoutWrapper>
 				<Banner />
+			</LayoutWrapper>
+			<LayoutWrapper className='max-w-7xl'>
 				<TextSeo description={ response[lang].description }/>
 			</LayoutWrapper>
 		</>

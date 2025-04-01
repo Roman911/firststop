@@ -33,22 +33,25 @@ const Offers: FC<Props> = ({ locale, offerId, offers, setOfferId, setQuantity })
 						<div
 							className='grid-cols-10 grid md:grid-cols-9 w-full gap-1 md:gap-2 items-center md:min-w-[460px]'
 						>
-							<div className='font-medium col-span-2 md:col-span-2 md:ml-3'>
+							<div className='font-medium col-span-3 md:col-span-2 md:ml-3'>
 								{ item.quantity } шт.
 							</div>
-							<div className='country col-span-2 md:col-span-3'>
+							<div className='country col-span-3 md:col-span-3'>
 								<CountryInfo
 									country={ locale === Language.UK ? item.country : item.country_ru }
 									year={ item.year }
 									mobileHidden={ true }
 								/>
 							</div>
-							<div className='storage col-span-3 md:col-span-2 content-center flex items-center gap-x-1 md:gap-x-2'>
+							<div className='storage hidden md:flex md:col-span-2 content-center items-center gap-x-1 md:gap-x-2'>
 								<Icons.MarkerIcon className='w-6 fill-black dark:fill-white' />
 								{ locale === Language.UK ? item.posts.city : item.posts.city_ru }
 							</div>
-							<div className='price col-span-3 md:col-span-2 font-bold content-center'>
+							<div className='price col-span-4 md:col-span-2 font-bold flex items-end flex-col'>
 								{ +item.price } грн
+								<div className='block md:hidden text-xs text-gray-300 font-medium text-end'>
+									{ locale === Language.UK ? item.posts.city : item.posts.city_ru }
+								</div>
 							</div>
 						</div>
 					</Radio>

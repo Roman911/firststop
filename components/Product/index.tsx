@@ -78,7 +78,7 @@ const ProductComponent: FC<Props> = ({ idProduct, locale, data, section }) => {
 	return (
 		<section className='product-page xl:gap-x-6 mt-4 md:mt-6 bg-white dark:bg-black py-6 md:py-14 px-4 md:px-10 rounded-xl'>
 			{ data.result &&
-				<div className='relative flex flex-col md:flex-row items-center md:items-start md:border-b border-gray-200'>
+				<div className='relative flex flex-col md:flex-row items-center md:items-start md:border-b pb-8 border-gray-200'>
 					<ImagesBlock
 						locale={ locale }
 						images={ data.data.photos.urls || [] }

@@ -1,16 +1,41 @@
 'use client'
-import { Link } from '@/i18n/routing';
+import { useEffect } from 'react';
+import { Link, useRouter } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
-import { useAppSelector } from '@/hooks/redux';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { changeRender } from '@/store/slices/filterCarSlice';
 import { baseDataAPI } from '@/services/baseDataService';
 import { Section, Subsection } from '@/models/filter';
 
-const SelectionByCar = () => {
+const SelectionByCar = ({ section }: { section: Section }) => {
+	const router = useRouter();
+	const dispatch = useAppDispatch();
 	const t = useTranslations('Main');
-	const { section, subsection } = useAppSelector(state => state.filterReducer);
-	const { filter } = useAppSelector(state => state.filterCarReducer);
+	const { subsection } = useAppSelector(state => state.filterReducer);
+	const { filter, firstRender } = useAppSelector(state => state.filterCarReducer);
 	const { data } = baseDataAPI.useFetchKitTyreSizeQuery(`${filter.modification}`);
 	const { data: diskSize } = baseDataAPI.useFetchKitDiskSizeQuery(`${filter.modification}`);
+
+	useEffect(() => {
+		if (!firstRender || !filter.modification) return;
+
+		const isTires = section === Section.Tires;
+		const sourceData = isTires ? data : diskSize;
+		if (!sourceData) return;
+
+		const filterData = sourceData.filter(i => i.type === 1);
+		if (!filterData.length) return;
+
+		dispatch(changeRender());
+
+		const [item] = filterData;
+
+		const href = isTires
+			? `/w-${item.width}/h-${'height' in item ? item.height : ''}/d-${item.diameter}`
+			: `/w-${item.width}/d-${item.diameter}/kr-${item.kits.bolt_count}x${item.kits.pcd}/et-${'et' in item ? item.et : ''}/dia-${item.kits.dia}`;
+
+		router.push(`/catalog/${section}${href}`);
+	}, [data, diskSize, dispatch, filter.modification, firstRender, router, section]);
 
 	if(subsection === Subsection.ByParams || data?.length === 0) return null;
 

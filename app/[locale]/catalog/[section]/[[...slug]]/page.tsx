@@ -11,7 +11,7 @@ import HeaderCatalog from '@/components/Catalog/HeaderCatalog';
 import Pagination from '@/components/Catalog/Pagination';
 import type { Metadata } from 'next';
 
-const pageItem = 12;
+const pageItem = 30;
 const sort = {
 	ch: '&order[asc]=1',
 	ex: '&order[asc]=0',
@@ -36,7 +36,7 @@ async function getProducts({ page, searchParams }: { page: number | null, search
 			'Access-Control-Allow-Credentials': 'true',
 			'content-type': 'application/json',
 		},
-		body: JSON.stringify({ start: page ? (page - 1) * pageItem : 0, length: 12 }),
+		body: JSON.stringify({ start: page ? (page - 1) * pageItem : 0, length: pageItem }),
 	});
 	return await res.json();
 }
@@ -70,7 +70,7 @@ export default async function Catalog({ params }: { params: Promise<{ locale: La
 			<div className='py-5 lg:flex lg:gap-10'>
 				<FilterAlt filterData={ filterData } section={ section } />
 				<div className='flex-1'>
-					<SelectionByCar />
+					<SelectionByCar section={ section } />
 					{ products.result ? <ProductList
 						classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
 						data={ products.data }
