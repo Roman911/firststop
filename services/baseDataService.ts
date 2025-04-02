@@ -14,7 +14,7 @@ import type { AliasAll } from '@/models/alias';
 export const baseDataAPI = createApi({
 	reducerPath: 'dataAPI',
 	baseQuery: fetchBaseQuery({
-		baseUrl: process.env.SERVER_URL,
+		baseUrl: 'https://admin.firststop.com.ua',
 		headers: {
 			'Access-Control-Allow-Credentials': 'true',
 			'Access-Control-Allow-Origin': process.env.ACCESS_ORIGIN || '',
