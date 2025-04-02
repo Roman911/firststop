@@ -16,18 +16,21 @@ interface ProductItem {
 export const useAppGetProducts = (products: ProductItem[] = [], reducer: 'reducerCart' | 'reducerBookmarks' | 'reducerComparison' | 'recentlyViewed', byOffer?: boolean) => {
 	const dispatch = useAppDispatch();
 
-	const [groupedIds, setGroupedIds] = useState<{ tires: number[]; cargo: number[]; disks: number[]; battery: number[] }>({
+	const [groupedIds, setGroupedIds] = useState<{ tires: number[]; cargo: number[]; disks: number[]; battery: number[]; oil: number[] }>({
 		tires: [],
 		cargo: [],
 		disks: [],
 		battery: [],
+		oil: [],
 	});
 
-	const [groupedItems, setGroupedItems] = useState<{ tiresItems: Product[]; cargoItems: Product[]; disksItems: Product[]; batteryItems: Product[] }>({
+	const [groupedItems, setGroupedItems] = useState<{
+		tiresItems: Product[]; cargoItems: Product[]; disksItems: Product[]; batteryItems: Product[]; oilItems: Product[] }>({
 		tiresItems: [],
 		cargoItems: [],
 		disksItems: [],
 		batteryItems: [],
+		oilItems: [],
 	});
 
 	const [newProducts, setNewProducts] = useState<Product[]>([]);
@@ -43,6 +46,10 @@ export const useAppGetProducts = (products: ProductItem[] = [], reducer: 'reduce
 	const { data: dataDisks, isLoading: disksIsLoading } = baseDataAPI.useFetchProductsQuery({
 		id: `${byOffer ? '?typeproduct=3&Offer_id' : '?typeproduct=3&product_ids'}=${groupedIds.disks.join(',')}`,
 		length: groupedIds.disks.length || 1,
+	});
+	const { data: dataOil, isLoading: oilIsLoading } = baseDataAPI.useFetchProductsQuery({
+		id: `?typeproduct=5&categories=7&product_ids=${groupedIds.oil.join(',')}`,
+		length: groupedIds.oil.length || 1,
 	});
 	const { data: dataBattery, isLoading } = baseDataAPI.useFetchProductsQuery({
 		id: `${byOffer ? '?typeproduct=4&Offer_id' : '?typeproduct=4&product_ids'}=${groupedIds.battery.join(',')}`,
@@ -66,12 +73,15 @@ export const useAppGetProducts = (products: ProductItem[] = [], reducer: 'reduce
 					case 'battery':
 						acc.battery.push(product.id);
 						break;
+					case 'oil':
+						acc.oil.push(product.id);
+						break;
 					default:
 						break;
 				}
 				return acc;
 			},
-			{ tires: [], cargo: [], disks: [], battery: [] } as { tires: number[]; cargo: number[]; disks: number[]; battery: number[] }
+			{ tires: [], cargo: [], disks: [], battery: [], oil: [] } as { tires: number[]; cargo: number[]; disks: number[]; battery: number[]; oil: number[]; },
 		);
 		setGroupedIds(grouped);
 	}, [products]);
@@ -127,12 +137,13 @@ export const useAppGetProducts = (products: ProductItem[] = [], reducer: 'reduce
 			cargoItems: dataCargo?.data?.products || [],
 			disksItems: dataDisks?.data?.products || [],
 			batteryItems: dataBattery?.data?.products || [],
+			oilItems: dataOil?.data?.products || [],
 		});
-	}, [dataTires, dataCargo, dataDisks, dataBattery]);
+	}, [dataTires, dataCargo, dataDisks, dataBattery, dataOil]);
 
 	// Sort and update new products based on the original products array
 	useEffect(() => {
-		const allProducts = [...groupedItems.tiresItems, ...groupedItems.cargoItems, ...groupedItems.disksItems, ...groupedItems.batteryItems];
+		const allProducts = [...groupedItems.tiresItems, ...groupedItems.cargoItems, ...groupedItems.disksItems, ...groupedItems.batteryItems, ...groupedItems.oilItems];
 		const sortedProducts = products
 			.map((product) => allProducts.find((item) => item.product_id === product.id))
 			.filter((item): item is Product => !!item); // Type narrowing to ensure no undefined values
@@ -146,6 +157,7 @@ export const useAppGetProducts = (products: ProductItem[] = [], reducer: 'reduce
 		cargo: groupedIds.cargo.length > 0 ? groupedItems.cargoItems : [],
 		disks: groupedIds.disks.length > 0 ? groupedItems.disksItems : [],
 		battery: groupedIds.battery.length > 0 ? groupedItems.batteryItems : [],
-		isLoading: tiresIsLoading || cargoIsLoading || disksIsLoading || isLoading,
+		oil: groupedIds.oil.length > 0 ? groupedItems.oilItems : [],
+		isLoading: tiresIsLoading || cargoIsLoading || disksIsLoading || oilIsLoading || isLoading,
 	};
 };

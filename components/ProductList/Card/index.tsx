@@ -20,9 +20,10 @@ const cargo = [ '3', '4', '5', '6', '9', '10', '11' ];
 
 interface Props {
 	item: Product
+	categories?: string
 }
 
-const ProductCard: FC<Props> = ({ item }) => {
+const ProductCard: FC<Props> = ({ item, categories }) => {
 	const [ isLoading, setLoading ] = useState(false);
 	const locale = useLocale();
 	const router = useRouter();
@@ -38,10 +39,10 @@ const ProductCard: FC<Props> = ({ item }) => {
 		if(!cartStorage?.find((item: { id: number, quantity: number }) => item.id === best_offer.id)) {
 			const cart = [ ...cartStorage, {
 				id: best_offer.id,
-				section: sectionNew,
+				section: categories || sectionNew,
 				quantity: 1
 			} ];
-			dispatch(addCart({ id: best_offer.id, quantity: 1, section }));
+			dispatch(addCart({ id: best_offer.id, quantity: 1, section: categories || section }));
 			addToStorage('reducerCart', cart);
 		}
 		router.push(`/cart`)
@@ -53,10 +54,10 @@ const ProductCard: FC<Props> = ({ item }) => {
 
 	return (
 		<Card radius='none' className='relative'>
-			<CardHeader className='flex justify-between pb-0 px-2'>
+			{ !categories && <CardHeader className='flex justify-between pb-0 px-2'>
 				<div></div>
 				<ActionsBlock sectionNew={ sectionNew } group={ group }/>
-			</CardHeader>
+			</CardHeader> }
 			<CardBody>
 				<div className='relative min-h-72 sm:min-h-52 text-center'>
 					<IconsBlock season={ season } vehicle_type={ vehicle_type }/>
@@ -68,13 +69,13 @@ const ProductCard: FC<Props> = ({ item }) => {
 						height={ 400 }
 					/>
 				</div>
-				<Link
+				{ categories ? <div className='font-semibold mt-2.5 mb-1 min-h-12'>{ full_name }</div> : <Link
 					href={ `/${ page_url }` }
 					onClick={ onClick }
 					className='font-semibold mt-2.5 mb-1 min-h-12 after:absolute after:inset-0'
 				>
 					{ full_name }
-				</Link>
+				</Link> }
 				<div className='text-sm text-gray-600 py-1 px-2 max-w-max rounded-md bg-gray-100'>
 					<span>Артикул: </span><span>{ sku }</span>
 				</div>

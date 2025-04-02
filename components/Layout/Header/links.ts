@@ -9,14 +9,14 @@ export const links = [
 	},
 	{
 		title: 'oil',
-		url: '/',
+		url: '/oil',
 	},
 	{
 		title: 'accessories',
-		url: '/',
+		url: '/accessories',
 	},
 	{
 		title: 'used',
-		url: '/',
+		url: '/used',
 	},
 ];

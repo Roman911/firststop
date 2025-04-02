@@ -23,7 +23,7 @@ const nextConfig: NextConfig = {
 			{
 				protocol: 'https',
 				hostname: 'admin.firststop.com.ua',
-				pathname: '/storage/**',
+				pathname: '**',
 			},
 		],
 	},
