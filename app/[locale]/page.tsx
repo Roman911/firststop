@@ -6,7 +6,8 @@ import Title from '@/components/UI/Title';
 import NoResult from '@/components/UI/NoResult';
 import ProductList from '@/components/ProductList';
 import TextSeo from '@/components/UI/TextSeo';
-import Banner from '@/components/Home/Banner';
+import Carousel from '@/components/Home/Carousel';
+import TopBrands from '@/components/Home/TopBrands';
 
 async function getSettings() {
 	const res = await fetch(`${ process.env.SERVER_URL }/baseData/settings`, {
@@ -30,6 +31,16 @@ async function getProducts() {
 	return await res.json();
 }
 
+async function getSliderData() {
+	const res = await fetch(`${ process.env.SERVER_URL }/api/banner/banner1`, {
+		method: 'GET',
+		headers: {
+			'Access-Control-Allow-Credentials': 'true',
+		}
+	});
+	return await res.json();
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: Language }> }): Promise<Metadata> {
 	const { locale } = await params;
 	const lang = locale === Language.UK ? LanguageCode.UA : Language.RU;
@@ -47,6 +58,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Langu
 	const lang = locale === Language.UK ? LanguageCode.UA : Language.RU;
 	const response = await getSettings();
 	const products = await getProducts();
+	const sliderData = await getSliderData();
 
 	return (
 		<>
@@ -57,9 +69,11 @@ export default async function Home({ params }: { params: Promise<{ locale: Langu
 					classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
 					data={ products.data }
 				/> : <NoResult noResultText='no result'/> }
+				<Title title='popular brands' translations={ true } className='mt-24 mb-5 text-2xl md:text-4xl font-bold px-3 md:px-0' />
+				<TopBrands />
 			</LayoutWrapper>
 			<LayoutWrapper>
-				<Banner />
+				<Carousel sliderData={ sliderData } />
 			</LayoutWrapper>
 			<LayoutWrapper className='max-w-7xl'>
 				<TextSeo description={ response[lang].description }/>
