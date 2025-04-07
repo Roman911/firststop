@@ -75,6 +75,7 @@
     "choose": "Підібрати",
     "choose tires": "Підібрати шини",
     "choose disks": "Підібрати диски",
+    "city": "Місто",
     "color": "Колір",
     "country": "Країна",
     "departure": "Виліт",
@@ -198,6 +199,7 @@
     "cart": "Кошик",
     "cartires": "Автошини",
     "cars": "Автомобілі",
+    "categories": "Категорії",
     "choose": "Підібрати",
     "contacts": "Контакти",
     "delivery calculation": "Розрахунок доставки",
@@ -312,5 +314,23 @@
   "PhoneMask": {
     "phone number": "Номер телефону",
     "enter your phone number": "Введіть номер телефону"
+  },
+  "Accessories": {
+    "shini": "Шини",
+    "motoshini": "Мотошини",
+    "mastila": "Мастила",
+    "diski": "Диски",
+    "bu": "Б/у",
+    "aksesuari": "Аксесуари",
+    "prostavki": "Проставки",
+    "kolpachki": "Ковпачки",
+    "centrovochni-kilcya": "Центровочні кільця",
+    "sekretki": "Секретки",
+    "shpilki": "Шпильки",
+    "gajki": "Гайки",
+    "bolti": "Болти",
+    "datchiki-tisku": "Датчики тиску",
+    "ventelya": "Вентиля",
+    "kolpachki-dlya-kriplennya": "Ковпачки для кріплення"
   }
 }

@@ -26,7 +26,7 @@ export const useAppSubmit = () => {
 	useEffect(() => {
 		const paramEntries: FilterEntries[] = [
 			[ 'w', filter.width ], [ 'h', filter.height ], [ 'b', filter.brand ], [ 'd', filter.radius ],
-			[ 's', filter.sezon ], [ 'stud', filter.only_studded ], [ 'm', filter.model_id ],
+			[ 's', filter.sezon ], [ 'stud', filter.only_studded ], [ 'm', filter.model_id ], [ 'cit', filter.citys ],
 			[ 'ctr', filter.country ], [ 'y', filter.year ], [ 'hm', filter.omolog ], [ 'kr', filter.krepeg ],
 			[ 'td', filter.typedisk ], [ 'clr', filter.colir ], [ 'ct', filter.jemnist ],
 			[ 'sk', filter.puskovii_strum ], [ 'elt', filter.tip_elektrolitu ], [ 'tk', filter.tip_korpusu ],

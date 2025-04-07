@@ -17,6 +17,7 @@ export interface IFilter {
 	sezon?: null | string
 	brand?: null | string
 	model_id?: null | string
+	citys?: null | string
 	country?: null | string
 	year?: null | string
 	omolog?: null | string

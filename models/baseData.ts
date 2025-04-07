@@ -37,6 +37,12 @@ interface ItemP {
 	p: string
 }
 
+interface Citys {
+	label: string
+	label_ru: string
+	value: string
+}
+
 export interface Options {
 	label: number | string
 	value: number | string
@@ -46,6 +52,7 @@ export interface BaseDataProps {
 	auto: Auto[]
 	brand: Brand[]
 	brand_disc: Brand[]
+	citys: Citys[]
 	colir_abbr: ItemP[]
 	country: Country[]
 	country_ru: Country[]

@@ -13,6 +13,7 @@ const paramTrans: OriginalType = {
 	hm: 'omolog',
 	kr: 'krepeg',
 	td: 'typedisk',
+	cit: 'citys',
 	clr: 'colir',
 	ct: 'jemnist',
 	sk: 'puskovii_strum',

@@ -53,7 +53,7 @@ const ProductCard: FC<Props> = ({ item, categories }) => {
 	}
 
 	return (
-		<Card radius='none' className='relative'>
+		<Card radius='none' className='relative hover:shadow-2xl'>
 			{ !categories && <CardHeader className='flex justify-between pb-0 px-2'>
 				<div></div>
 				<ActionsBlock sectionNew={ sectionNew } group={ group }/>

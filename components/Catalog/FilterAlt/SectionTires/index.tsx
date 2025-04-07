@@ -134,6 +134,14 @@ const SectionTires: FC<Props> = ({ filterData, onChange }) => {
 					only_off_road: filter?.only_off_road ?? null,
 				}}
 			/>
+			<Select
+				name='citys'
+				label='city'
+				options={ data?.citys.map(item => ({ value: item.value, label: locale === Language.UK ? item.label : item.label })) || []}
+				onChange={ onChange }
+				filterValue={ filter?.citys }
+				search={ true }
+			/>
 		</>
 	)
 };

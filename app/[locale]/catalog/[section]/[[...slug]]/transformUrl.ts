@@ -5,7 +5,7 @@ const special = ['3','4','5','6','9','10','11'];
 
 const paramKeys: Array<keyof IFilter> = [
 	'width', 'height', 'radius', 'sezon', 'brand', 'model_id', 'country', 'year', 'omolog',
-	'krepeg', 'typedisk', 'colir', 'jemnist', 'puskovii_strum', 'tip_elektrolitu',
+	'krepeg', 'typedisk', 'colir', 'citys', 'jemnist', 'puskovii_strum', 'tip_elektrolitu',
 	'tip_korpusu', 'napruga', 'poliarnist', 'vehicle_type', 'li', 'si', 'only_studded',
 	'only_c', 'only_xl', 'only_owl', 'only_run_flat', 'only_off_road', 'minPrice', 'maxPrice',
 	'etMin', 'etMax', 'diaMin', 'diaMax', 'minShirina', 'maxShirina', 'minVisota', 'maxVisota',

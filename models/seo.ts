@@ -48,6 +48,7 @@ export type OriginalType = {
 	s: 'sezon',
 	stud: 'only_studded',
 	m: 'model_id',
+	cit: 'citys',
 	ctr: 'country',
 	y: 'year',
 	hm: 'omolog',

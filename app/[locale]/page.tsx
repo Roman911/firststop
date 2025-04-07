@@ -8,6 +8,7 @@ import ProductList from '@/components/ProductList';
 import TextSeo from '@/components/UI/TextSeo';
 import Carousel from '@/components/Home/Carousel';
 import TopBrands from '@/components/Home/TopBrands';
+import Banners from '@/components/Home/Banners';
 
 async function getSettings() {
 	const res = await fetch(`${ process.env.SERVER_URL }/baseData/settings`, {
@@ -63,20 +64,21 @@ export default async function Home({ params }: { params: Promise<{ locale: Langu
 	return (
 		<>
 			<Filter />
-			<LayoutWrapper className='max-w-7xl'>
-				<Title title={ response[lang].h2_top } className='mt-12 mb-5 text-2xl md:text-4xl font-bold px-3 md:px-0' />
-				{ products.result ? <ProductList
-					classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
-					data={ products.data }
-				/> : <NoResult noResultText='no result'/> }
-				<Title title='popular brands' translations={ true } className='mt-24 mb-5 text-2xl md:text-4xl font-bold px-3 md:px-0' />
-				<TopBrands />
-			</LayoutWrapper>
 			<LayoutWrapper>
+				<Banners />
+				<div className='max-w-7xl mx-auto'>
+					<Title title={ response[lang].h2_top } className='mt-12 mb-5 text-2xl md:text-4xl font-bold px-3 md:px-0' />
+					{ products.result ? <ProductList
+						classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
+						data={ products.data }
+					/> : <NoResult noResultText='no result'/> }
+					<Title title='popular brands' translations={ true } className='mt-24 mb-5 text-2xl md:text-4xl font-bold px-3 md:px-0' />
+					<TopBrands />
+				</div>
 				<Carousel sliderData={ sliderData } />
-			</LayoutWrapper>
-			<LayoutWrapper className='max-w-7xl'>
-				<TextSeo description={ response[lang].description }/>
+				<div className='max-w-7xl mx-auto'>
+					<TextSeo description={ response[lang].description }/>
+				</div>
 			</LayoutWrapper>
 		</>
 	);

@@ -16,6 +16,7 @@ const initialFilterState: IFilter = {
 	sezon: null,
 	brand: null,
 	model_id: null,
+	citys: null,
 	country: null,
 	year: null,
 	omolog: null,

@@ -14,7 +14,7 @@ const ProductList: FC<Props> = ({ classnames, data, categories }) => {
 	})
 
 	return (
-		<div className={`grid gap-3 ${classnames}`}>
+		<div className={`grid gap-4 ${classnames}`}>
 			{ products }
 		</div>
 	)
