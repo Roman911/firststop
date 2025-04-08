@@ -16,7 +16,7 @@ const Logo: FC = () => {
 	return (
 		<Link href='/' onClick={ handleClick } className='logo'>
 			<Image
-				src='/logo_light.png'
+				src='/logo_light.svg'
 				className='dark:hidden'
 				alt="logo"
 				width={ 192 }
@@ -24,7 +24,7 @@ const Logo: FC = () => {
 				priority
 			/>
 			<Image
-				src='/logo_dark.png'
+				src='/logo_dark.svg'
 				className='hidden dark:block'
 				alt="logo"
 				width={ 192 }

@@ -1,10 +1,11 @@
 import Breadcrumbs from '@/components/UI/Breadcrumbs';
 import Title from '@/components/UI/Title';
-import Item from '@/components/Accessories/Item';
 import LayoutWrapper from '@/components/Layout/LayoutWrapper';
+import ProductList from '@/components/ProductList';
+import NoResult from '@/components/UI/NoResult';
 
-async function getCategories(id: string) {
-	const res = await fetch(`${process.env.SERVER_URL}/api/getCategory/${id}`, {
+async function getProducts(id: string) {
+	const res = await fetch(`${process.env.SERVER_URL}/api/getProducts?typeproduct=5&categories=${id}`, {
 		method: 'GET',
 		headers: {
 			'Access-Control-Allow-Credentials': 'true',
@@ -16,7 +17,9 @@ async function getCategories(id: string) {
 
 export default async function Category({ params }: { params: Promise<{ category: string }> }) {
 	const { category } = await params;
-	const categories = await getCategories(category);
+	const products = await getProducts(category);
+
+	console.log(category, products);
 
 	const path = [
 		{
@@ -35,11 +38,10 @@ export default async function Category({ params }: { params: Promise<{ category:
 		<LayoutWrapper className='max-w-7xl'>
 			<Breadcrumbs path={ path } />
 			<Title isMain={ true } title='categories' translations={ true } className='mt-3 text-lg font-medium px-0 md:px-3 mb-6 md:mb-1' />
-			<div className='grid grid-cols-2 md:grid-cols-3 gap-6 mt-8'>
-				{ categories.children.map((category: { image: string | null, slug: string, category_id: number }, index: number) => (
-					<Item key={ index } id={ category.category_id } href='accessories' image={ category.image } slug={ category.slug } />
-				)) }
-			</div>
+			{ products.result ? <ProductList
+				classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
+				data={ products.data } categories='ccessories'
+			/> : <NoResult noResultText='no result' /> }
 		</LayoutWrapper>
 	)
 };
