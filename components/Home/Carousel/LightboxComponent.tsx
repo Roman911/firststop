@@ -4,6 +4,7 @@ import LightboxComponent, {
 
 import "yet-another-react-lightbox/styles.css";
 import Inline from 'yet-another-react-lightbox/plugins/inline';
+import Slideshow from 'yet-another-react-lightbox/plugins/slideshow';
 import * as React from 'react';
 
 /**
@@ -18,7 +19,7 @@ export default function Lightbox(
 		<>
 			<LightboxComponent
 				// add plugins here
-				plugins={[Inline]}
+				plugins={[Inline, Slideshow]}
 				{...props}
 			/>
 		</>

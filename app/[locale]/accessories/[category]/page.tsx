@@ -19,8 +19,6 @@ export default async function Category({ params }: { params: Promise<{ category:
 	const { category } = await params;
 	const products = await getProducts(category);
 
-	console.log(category, products);
-
 	const path = [
 		{
 			title: 'accessories',

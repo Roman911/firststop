@@ -40,7 +40,7 @@ const Filter = () => {
 	}
 
 	return (
-		<section className={ twMerge(styles['home-filter'], 'w-full py-6 px-2 md:p-0 h-[698px] relative flex') }>
+		<section className={ twMerge(styles['home-filter'], 'w-full py-6 px-2 md:p-0 h-[698px] relative flex', styles[`home-filter__${ section }`]) }>
 			<FilterBlock onSubmit={ submit } section={ section }>
 				{ section === Section.Car ?
 					<FilterByCar section={ section } /> :

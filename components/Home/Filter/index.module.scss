@@ -1,81 +1,33 @@
 .home-filter {
   @apply bg-center bg-no-repeat bg-cover;
 
-  background-image: image-set(
-                  url('/images/home-filter/bg-filter_3x.jpg') 3x,
-                  url('/images/home-filter/bg-filter_2x.jpg') 2x,
-                  url('/images/home-filter/bg-filter.jpg') 1x
-  );
+  //background-image: image-set(
+  //                url('/images/home-filter/bg-filter_3x.jpg') 3x,
+  //                url('/images/home-filter/bg-filter_2x.jpg') 2x,
+  //                url('/images/home-filter/bg-filter.jpg') 1x
+  //);
 
-  //&__tires {
-  //  background-image: image-set(
-  //                  url('/home-filter/bg-tires-mob_3x.jpg') 3x,
-  //                  url('/home-filter/bg-tires-mob_2x.jpg') 2x,
-  //                  url('/home-filter/bg-tires-mob.jpg') 1x
-  //  );
-  //
-  //  @media screen and (min-width: 768px) {
-  //    background-image: image-set(
-  //                    url('/home-filter/bg-tires_3x.jpg') 3x,
-  //                    url('/home-filter/bg-tires_2x.jpg') 2x,
-  //                    url('/home-filter/bg-tires.jpg') 1x
-  //    );
-  //  }
-  //
-  //  @media screen and (min-width: 1920px) {
-  //    background-image: image-set(
-  //                    url('/home-filter/bg-tires-xxl_3x.jpg') 3x,
-  //                    url('/home-filter/bg-tires-xxl_2x.jpg') 2x,
-  //                    url('/home-filter/bg-tires-xxl.jpg') 1x
-  //    );
-  //  }
-  //}
-  //
-  //&__disks {
-  //  background-image: image-set(
-  //                  url('/home-filter/bg-disks-mob_3x.jpg') 3x,
-  //                  url('/home-filter/bg-disks-mob_2x.jpg') 2x,
-  //                  url('/home-filter/bg-disks-mob.jpg') 1x
-  //  );
-  //
-  //  @media screen and (min-width: 768px) {
-  //    background-image: image-set(
-  //                    url('/home-filter/bg-disks_3x.jpg') 3x,
-  //                    url('/home-filter/bg-disks_2x.jpg') 2x,
-  //                    url('/home-filter/bg-disks.jpg') 1x
-  //    );
-  //  }
-  //
-  //  @media screen and (min-width: 1920px) {
-  //    background-image: image-set(
-  //                    url('/home-filter/bg-disks-xxl_3x.jpg') 3x,
-  //                    url('/home-filter/bg-disks-xxl_2x.jpg') 2x,
-  //                    url('/home-filter/bg-disks-xxl.jpg') 1x
-  //    );
-  //  }
-  //}
-  //
-  //&__car {
-  //  background-image: image-set(
-  //                  url('/home-filter/bg-car-mob_3x.jpg') 3x,
-  //                  url('/home-filter/bg-car-mob_2x.jpg') 2x,
-  //                  url('/home-filter/bg-car-mob.jpg') 1x
-  //  );
-  //
-  //  @media screen and (min-width: 768px) {
-  //    background-image: image-set(
-  //                    url('/home-filter/bg-car_3x.jpg') 3x,
-  //                    url('/home-filter/bg-car_2x.jpg') 2x,
-  //                    url('/home-filter/bg-car.jpg') 1x
-  //    );
-  //  }
-  //
-  //  @media screen and (min-width: 1920px) {
-  //    background-image: image-set(
-  //                    url('/home-filter/bg-car-xxl_3x.jpg') 3x,
-  //                    url('/home-filter/bg-car-xxl_2x.jpg') 2x,
-  //                    url('/home-filter/bg-car-xxl.jpg') 1x
-  //    );
-  //  }
-  //}
+  &__tires {
+    background-image: image-set(
+                    url('/images/home-filter/bg-tires_3x.jpg') 3x,
+                    url('/images/home-filter/bg-tires_2x.jpg') 2x,
+                    url('/images/home-filter/bg-tires.jpg') 1x
+    );
+  }
+
+  &__disks {
+    background-image: image-set(
+                    url('/images/home-filter/bg-disks_3x.jpg') 3x,
+                    url('/images/home-filter/bg-disks_2x.jpg') 2x,
+                    url('/images/home-filter/bg-disks.jpg') 1x
+    );
+  }
+
+  &__car {
+    background-image: image-set(
+                    url('/images/home-filter/bg-car_3x.jpg') 3x,
+                    url('/images/home-filter/bg-car_2x.jpg') 2x,
+                    url('/images/home-filter/bg-car.jpg') 1x
+    );
+  }
 }
