@@ -46,7 +46,7 @@ const HeaderMain: FC<Props> = ({ settings }) => {
 				isMenuOpen={ isMenuOpen }
 				onMenuOpenChange={ setIsMenuOpen }
 				className='container mx-auto bg-white dark:bg-gray-950 relative'
-				classNames={ { wrapper: twMerge('grid h-30 md:h-18 items-center justify-normal py-1 px-4 grid-cols-2 gap-2 md:gap-4 lg:grid-cols-[260px_auto_auto_150px]', styles['container']) } }
+				classNames={ { wrapper: twMerge('grid h-30 items-center justify-normal py-1 px-4 grid-cols-2 gap-2 md:gap-4 lg:grid-cols-[260px_auto_auto_150px]', styles['container']) } }
 			>
 				<NavbarContent className={ styles.logo }>
 					<NavbarBrand>

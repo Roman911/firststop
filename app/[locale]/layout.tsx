@@ -8,7 +8,6 @@ import Header from '@/components/Layout/Header';
 import Footer from '@/components/Layout/Footer';
 import '../colors.css';
 import '../globals.css';
-import { Language } from '@/models/language';
 import { ToastProvider } from "@heroui/toast";
 
 const notoSans = localFont({
@@ -86,7 +85,7 @@ export default async function RootLayout(
 		params,
 	}: Readonly<{
 		children: React.ReactNode;
-		params: Promise<{ locale: Language }>;
+		params: Promise<{ locale: string }>;
 	}>) {
 	const { locale } = await params;
 	const messages = await getMessages();

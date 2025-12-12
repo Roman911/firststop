@@ -1,50 +1,34 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-body {
-  color: var(--foreground);
-  background: var(--background);
+@plugin './hero.ts';
+@source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --color-gray-50: #F5F5F5;
+    --color-gray-100: #F0F0F0;
+    --color-gray-200: #E4EAF0;
+    --color-gray-300: #A8A8A8;
+    --color-gray-400: #606060;
+    --color-gray-500: #707680;
+    --color-gray-600: #606060;
+    --color-gray-700: #27272a;
+    --color-gray-800: #222222;
+    --color-gray-900: #18181b;
+    --color-gray-950: #030712;
+
+    --color-blue-100: #EBEEFC;
+    --color-blue-500: #334CCC;
+    --color-blue-800: #1D33A5;
+
+    --color-red-500: #E42024;
+
+    --color-teal-500: #6EDEAD;
+
+    --color-violet-500: #6550D3;
 }
 
-@layer base {
-  input {
-    outline: none;
-  }
-
-  .icon {
-    @apply text-2xl;
-  }
-}
-
-@layer components {
-  .btn {
-    @apply h-12 rounded-sm font-bold w-72 flex justify-center items-center transition-all;
-  }
-
-  .primary {
-    @apply text-black transition;
-    background: var(--g-color-primary);
-
-    &:hover {
-      background: var(--g-color-primary);
-    }
-  }
-
-  .black {
-    @apply text-white transition;
-    background: var(--g-color-background);
-  }
-
-  /*.secondary {*/
-  /*  @apply bg-white hover:bg-blue-200;*/
-  /*}*/
-
-/*  .success {*/
-/*    @apply bg-black text-white hover:bg-gray-800;*/
-/*  }*/
-
-/*  .small {*/
-/*    @apply w-20;*/
-/*  }*/
+@theme static {
+    --color-black: var(--color-gray-800);
+    --color-primary: var(--color-red-500);
 }

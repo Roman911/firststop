@@ -27,6 +27,9 @@ const nextConfig: NextConfig = {
 			},
 		],
 	},
+	experimental: {
+		optimizePackageImports: ['@heroui/react'],
+	},
 };
 
 export default withNextIntl(nextConfig);

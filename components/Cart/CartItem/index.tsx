@@ -42,7 +42,7 @@ const CartItem: FC<CartItemProps> = (
 		setQuantity(id,numericValue < offerQuantity ? numericValue : offerQuantity);
 	}
 
-	return <div className='flex flex-col md:flex-row py-4 items-center relative border-b'>
+	return <div className='flex flex-col md:flex-row py-4 items-center relative border-b border-gray-200'>
 		<Link href={`/${pageUrl}`}>
 			<Image src={ default_photo } height={ 160 } width={ 160 } alt={ full_name } />
 		</Link>

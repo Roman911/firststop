@@ -34,7 +34,7 @@ const Info: FC<Props> = ({ settings }) => {
 					{ settings.ua.config_telephone_kievstar_url }
 				</a>
 			</div>
-			<div className='flex items-center gap-3'>
+			<div className='flex items-center gap-3 text-black dark:text-white'>
 				<Icons.CalendarIcon className='fill-primary'/>
 				<HtmlContent htmlString={ settings[lang].config_open || '' } />
 			</div>

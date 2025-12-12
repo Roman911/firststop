@@ -32,7 +32,6 @@ const MySelect: FC<SelectProps> = ({ name, label, options = [], isDisabled = fal
 	};
 
 	return <Autocomplete
-
 		variant='bordered'
 		size='sm'
 		className={ twMerge('max-w-full md:max-w-xs bg-white dark:bg-gray-800 dark:text-white placeholder:text-white', hidden ) }
